@@ -5,8 +5,8 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.18.0
-Release: %mkrel 2
+Version: 2.18.1
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
 License: GPL
@@ -23,7 +23,7 @@ BuildRequires: automake1.9
 BuildRequires: gnome-common
 BuildRequires: intltool
 BuildRequires: scrollkeeper
-BuildRequires: gnome-doc-utils libxslt-proc
+BuildRequires: gnome-doc-utils
 Requires: epiphany >= %epiver
 Requires(post): scrollkeeper
 Requires(postun): scrollkeeper
@@ -119,5 +119,3 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/omf/%name/%name-C.omf
 %dir %{_libdir}/epiphany
 %_libdir/epiphany/%{api_version}
-
-
