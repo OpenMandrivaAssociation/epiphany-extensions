@@ -6,7 +6,7 @@
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.19.2
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
 License: GPL
