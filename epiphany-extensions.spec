@@ -12,7 +12,6 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.b
 License: GPL
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: epiphany-devel >= %epiver
 BuildRequires: mozilla-firefox-devel
 BuildRequires: OpenSP-devel
