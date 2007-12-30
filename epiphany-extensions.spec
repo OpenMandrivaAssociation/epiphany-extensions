@@ -1,13 +1,14 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.20
-%define api_version 2.20
+%define epiver 2.21
+%define api_version 2.21
+%define svn 1648
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.20.1
-Release: %mkrel 1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Version: 2.21.0
+Release: %mkrel 0.%svn.1
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{svn}.tar.bz2
 
 License: GPL
 Group: Networking/WWW
@@ -57,13 +58,14 @@ Tab groups
 Tab states
 
 %prep
-%setup -q
+%setup -q -n %name
 #gw this has the wrong paths and must be regenerated (b.g.o #418041)
 rm -f extensions/epilicious/epilicious.py
 
-aclocal -I m4
-autoconf
-automake
+#aclocal -I m4
+#autoconf
+#automake
+./autogen.sh
 
 cp extensions/error-viewer/README README.error-viewer
 
@@ -108,7 +110,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %name-%api_version.lang
 %defattr(-,root,root)
-%doc COPYING* AUTHORS ChangeLog NEWS README*
+%doc COPYING* AUTHORS NEWS README*
+#%doc ChangeLog
 %doc extensions/gestures/ephy-gestures.xml
 %_sysconfdir/gconf/schemas/smart-bookmarks.schemas
 %_sysconfdir/gconf/schemas/epilicious.schemas
