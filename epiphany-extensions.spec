@@ -30,7 +30,6 @@ Requires(postun): scrollkeeper
 
 
 %description
-
 This package contains the following extensions for the GNOME Web Browser:
 Actions
 Ad blocker
