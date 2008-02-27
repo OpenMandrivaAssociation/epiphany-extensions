@@ -6,9 +6,9 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.21.0
-Release: %mkrel 0.%svn.1
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{svn}.tar.bz2
+Version: 2.21.92
+Release: %mkrel 1
+Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
 License: GPL
 Group: Networking/WWW
@@ -58,14 +58,9 @@ Tab groups
 Tab states
 
 %prep
-%setup -q -n %name
+%setup -q
 #gw this has the wrong paths and must be regenerated (b.g.o #418041)
 rm -f extensions/epilicious/epilicious.py
-
-#aclocal -I m4
-#autoconf
-#automake
-./autogen.sh
 
 cp extensions/error-viewer/README README.error-viewer
 
