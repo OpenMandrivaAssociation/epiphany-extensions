@@ -1,12 +1,12 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.21
-%define api_version 2.21
+%define epiver 2.22
+%define api_version 2.22
 %define svn 1648
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.21.92
+Version: 2.22.0
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
