@@ -7,7 +7,7 @@
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.22.0
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 
 License: GPL
@@ -65,12 +65,12 @@ rm -f extensions/epilicious/epilicious.py
 cp extensions/error-viewer/README README.error-viewer
 
 %build
-%configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,page-info,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,smart-bookmarks,tab-groups,tab-states \
+%configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,tab-groups,tab-states \
 %if %mdkversion <= 200700
 --with-mozilla=mozilla-firefox
 %endif
 
-#net-monitor,
+#net-monitor,smart-bookmarks,page-info
 %make
 
 %install
