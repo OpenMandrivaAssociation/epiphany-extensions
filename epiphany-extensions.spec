@@ -7,9 +7,12 @@
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.22.0
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-
+# http://bugzilla.gnome.org/show_bug.cgi?id=521874
+Patch: epiphany-extensions-2.22.0-fix-page-info.patch
+# http://bugzilla.gnome.org/show_bug.cgi?id=521880
+Patch1: epiphany-extensions-2.22.0-fix-smart-bookmarks.patch
 License: GPL
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
@@ -59,18 +62,19 @@ Tab states
 
 %prep
 %setup -q
-#gw this has the wrong paths and must be regenerated (b.g.o #418041)
-rm -f extensions/epilicious/epilicious.py
+%patch
+%patch1
 
 cp extensions/error-viewer/README README.error-viewer
 
 %build
-%configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,tab-groups,tab-states \
+#gw not enabled extensions:
+#net-monitor
+%configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,page-info,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,smart-bookmarks,tab-groups,tab-states \
 %if %mdkversion <= 200700
 --with-mozilla=mozilla-firefox
 %endif
 
-#net-monitor,smart-bookmarks,page-info
 %make
 
 %install
@@ -91,8 +95,7 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{api_version}/extensions/*.la \
 
 %post
 %update_scrollkeeper
-%define schemas epilicious
-#smart-bookmarks 
+%define schemas epilicious smart-bookmarks 
 %post_install_gconf_schemas %schemas
 
 %preun
@@ -110,7 +113,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING* AUTHORS NEWS README*
 #%doc ChangeLog
 %doc extensions/gestures/ephy-gestures.xml
-#%_sysconfdir/gconf/schemas/smart-bookmarks.schemas
+%_sysconfdir/gconf/schemas/smart-bookmarks.schemas
 %_sysconfdir/gconf/schemas/epilicious.schemas
 %_datadir/%name/
 %_datadir/epiphany/icons/hicolor/*/status/*
