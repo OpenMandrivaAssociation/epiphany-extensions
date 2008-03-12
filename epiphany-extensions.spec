@@ -91,10 +91,12 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{api_version}/extensions/*.la \
 
 %post
 %update_scrollkeeper
-%post_install_gconf_schemas smart-bookmarks epilicious
+%define schemas epilicious
+#smart-bookmarks 
+%post_install_gconf_schemas %schemas
 
 %preun
-%preun_uninstall_gconf_schemas smart-bookmarks epilicious
+%preun_uninstall_gconf_schemas %schemas
 
 %postun
 %clean_scrollkeeper
@@ -108,7 +110,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING* AUTHORS NEWS README*
 #%doc ChangeLog
 %doc extensions/gestures/ephy-gestures.xml
-%_sysconfdir/gconf/schemas/smart-bookmarks.schemas
+#%_sysconfdir/gconf/schemas/smart-bookmarks.schemas
 %_sysconfdir/gconf/schemas/epilicious.schemas
 %_datadir/%name/
 %_datadir/epiphany/icons/hicolor/*/status/*
