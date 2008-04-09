@@ -6,13 +6,11 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.22.0
-Release: %mkrel 3
+Version: 2.22.1
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # http://bugzilla.gnome.org/show_bug.cgi?id=521874
 Patch: epiphany-extensions-2.22.0-fix-page-info.patch
-# http://bugzilla.gnome.org/show_bug.cgi?id=521880
-Patch1: epiphany-extensions-2.22.0-fix-smart-bookmarks.patch
 License: GPL
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
@@ -63,7 +61,6 @@ Tab states
 %prep
 %setup -q
 %patch
-%patch1
 
 cp extensions/error-viewer/README README.error-viewer
 
