@@ -6,12 +6,10 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.22.1
+Version: 2.22.2
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-# http://bugzilla.gnome.org/show_bug.cgi?id=521874
-Patch: epiphany-extensions-2.22.0-fix-page-info.patch
-License: GPL
+License: GPLv2+
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -60,7 +58,6 @@ Tab states
 
 %prep
 %setup -q
-%patch
 
 cp extensions/error-viewer/README README.error-viewer
 
