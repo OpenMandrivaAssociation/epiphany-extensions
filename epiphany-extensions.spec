@@ -7,15 +7,22 @@
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.22.2
-Release: %mkrel 2
+Release: %mkrel 3
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch: epiphany-extensions-r1739-epi2.23.patch
-License: GPLv2+
+## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
+## GPLv2 (only); and all other extensions are GPLv2+.
+License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: epiphany-devel >= %epiver
+#gw TODO: move this to epiphany-devel
+%if %mdvver >= 200900
+BuildRequires: xulrunner-devel-unstable
+%else
 BuildRequires: mozilla-firefox-devel
+%endif
 BuildRequires: OpenSP-devel
 BuildRequires: pcre-devel
 BuildRequires: dbus-devel >= 0.50
@@ -65,10 +72,14 @@ cp extensions/error-viewer/README README.error-viewer
 
 %build
 #gw not enabled extensions:
-#net-monitor
+#net-monitor 
 %configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,page-info,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,smart-bookmarks,tab-groups,tab-states \
+%if %mdvver >= 200900
+--with-gecko=libxul-embedding \
+%else
 %if %mdkversion <= 200700
 --with-mozilla=mozilla-firefox
+%endif
 %endif
 
 %make
