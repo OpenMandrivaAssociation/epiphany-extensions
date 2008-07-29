@@ -1,14 +1,15 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.22
-%define api_version 2.22
+%define epiver 2.23
+%define api_version 2.23
 %define svn 1648
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.22.2
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+Patch: epiphany-extensions-r1739-epi2.23.patch
 License: GPLv2+
 Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
@@ -18,7 +19,6 @@ BuildRequires: mozilla-firefox-devel
 BuildRequires: OpenSP-devel
 BuildRequires: pcre-devel
 BuildRequires: dbus-devel >= 0.50
-BuildRequires: perl-XML-Parser
 BuildRequires: automake1.9
 BuildRequires: gnome-common
 BuildRequires: intltool
@@ -58,6 +58,8 @@ Tab states
 
 %prep
 %setup -q
+%patch -p1
+autoconf
 
 cp extensions/error-viewer/README README.error-viewer
 
