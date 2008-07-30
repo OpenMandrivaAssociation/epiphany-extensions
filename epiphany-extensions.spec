@@ -17,12 +17,6 @@ Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: epiphany-devel >= %epiver
-#gw TODO: move this to epiphany-devel
-%if %mdvver >= 200900
-BuildRequires: xulrunner-devel-unstable
-%else
-BuildRequires: mozilla-firefox-devel
-%endif
 BuildRequires: OpenSP-devel
 BuildRequires: pcre-devel
 BuildRequires: dbus-devel >= 0.50
