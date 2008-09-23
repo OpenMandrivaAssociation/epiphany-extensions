@@ -1,14 +1,13 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.23
-%define api_version 2.23
+%define epiver 2.24
+%define api_version 2.24
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.23.91
+Version: 2.24.0
 Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch: epiphany-extensions-r1739-epi2.23.patch
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
@@ -58,8 +57,6 @@ Tab states
 
 %prep
 %setup -q
-%patch -p1
-autoconf
 
 cp extensions/error-viewer/README README.error-viewer
 
