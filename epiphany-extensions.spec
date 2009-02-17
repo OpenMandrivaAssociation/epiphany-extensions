@@ -1,15 +1,15 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.25
-%define api_version 2.25
+%define epiver 2.25.91
+%define api_version 2.26
+%define dir_version 2.25
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.24.3
-Release: %mkrel 2
+Version: 2.25.91
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch: epiphany-extensions-2.24.3-format-string.patch
-Patch1: epiphany-extensions-2.24.3-epi2.25.patch
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
@@ -60,8 +60,6 @@ Tab states
 %prep
 %setup -q
 %patch -p1
-%patch1 -p1 -b .epi
-autoreconf
 
 cp extensions/error-viewer/README README.error-viewer
 
@@ -92,7 +90,7 @@ cat %name.lang >> %name-%api_version.lang
 
 
 #remove unpackaged files
-rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{api_version}/extensions/*.la \
+rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
 
 %post
@@ -122,4 +120,4 @@ rm -rf $RPM_BUILD_ROOT
 %dir %_datadir/omf/%name
 %_datadir/omf/%name/%name-C.omf
 %dir %{_libdir}/epiphany
-%_libdir/epiphany/%{api_version}
+%_libdir/epiphany/%{dir_version}
