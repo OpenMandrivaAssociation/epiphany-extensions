@@ -7,7 +7,7 @@
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
 Version: 2.26.0
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 Patch: epiphany-extensions-2.24.3-format-string.patch
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
@@ -82,7 +82,7 @@ rm -rf $RPM_BUILD_ROOT
 %makeinstall_std
 %find_lang %name-%api_version
 %find_lang %name --with-gnome
-for omf in %buildroot%_datadir/omf/*/*-??*.omf;do 
+for omf in %buildroot%_datadir/omf/*/*[_-]??.omf;do 
 echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%buildroot!!)" >> %name.lang
 done
 
