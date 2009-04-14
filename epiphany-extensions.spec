@@ -6,10 +6,9 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.26.0
-Release: %mkrel 2
+Version: 2.26.1
+Release: %mkrel 1
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-Patch: epiphany-extensions-2.24.3-format-string.patch
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
@@ -59,7 +58,6 @@ Tab states
 
 %prep
 %setup -q
-%patch -p1
 
 cp extensions/error-viewer/README README.error-viewer
 
