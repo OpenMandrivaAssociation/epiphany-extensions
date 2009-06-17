@@ -101,7 +101,7 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
 
 #gw does not work in 2.27.3:
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/libtabstatesextension.so
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/{libtabstatesextension.so,libautoscrollerextension.so}
 
 #%post
 #%update_scrollkeeper
