@@ -3,9 +3,9 @@
 %define epiver 2.27
 %define api_version 2.27
 %define dir_version 2.27
-%define git 20090416
+%define git 20090610
 %if %git
-%define release %mkrel 0.%git.3
+%define release %mkrel 0.%git.1
 %else
 %define release %mkrel 1
 %endif
@@ -72,7 +72,7 @@ Tab states
 %else
 %setup -q
 %endif
-%patch -p1
+#%patch -p1
 
 cp extensions/error-viewer/README README.error-viewer
 
@@ -99,9 +99,6 @@ cat %name.lang >> %name-%api_version.lang
 #remove unpackaged files
 rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
-
-#gw does not work in 2.27.3:
-rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/{libtabstatesextension.so,libautoscrollerextension.so}
 
 #%post
 #%update_scrollkeeper
