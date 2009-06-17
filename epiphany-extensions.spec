@@ -106,10 +106,10 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/{libtabstates
 #%post
 #%update_scrollkeeper
 #define schemas epilicious
-#%post_install_gconf_schemas %schemas
+#post_install_gconf_schemas %schemas
 
 #%preun
-#%preun_uninstall_gconf_schemas %schemas
+#preun_uninstall_gconf_schemas %schemas
 
 %postun
 %clean_scrollkeeper
