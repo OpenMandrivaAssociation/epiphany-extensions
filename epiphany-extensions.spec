@@ -5,7 +5,7 @@
 %define dir_version 2.27
 %define git 20090416
 %if %git
-%define release %mkrel 0.%git.2
+%define release %mkrel 0.%git.3
 %else
 %define release %mkrel 1
 %endif
@@ -79,7 +79,8 @@ cp extensions/error-viewer/README README.error-viewer
 %build
 #gw not enabled extensions:
 #net-monitor 
-%configure2_5x --with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,page-info,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,tab-groups,tab-states
+%configure2_5x 
+#--with-extensions=actions,adblock,auto-reload,auto-scroller,certificates,cc-license-viewer,epilicious,error-viewer,extensions-manager-ui,favicon,gestures,greasemonkey,java-console,livehttpheaders,page-info,permissions,push-scroller,python-console,rss,select-stylesheet,sidebar,tab-groups,tab-states
 
 %make
 
@@ -99,13 +100,16 @@ cat %name.lang >> %name-%api_version.lang
 rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
 
-%post
-%update_scrollkeeper
-%define schemas epilicious
-%post_install_gconf_schemas %schemas
+#gw does not work in 2.27.3:
+rm -f $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/libtabstatesextension.so
 
-%preun
-%preun_uninstall_gconf_schemas %schemas
+#%post
+#%update_scrollkeeper
+#define schemas epilicious
+#%post_install_gconf_schemas %schemas
+
+#%preun
+#%preun_uninstall_gconf_schemas %schemas
 
 %postun
 %clean_scrollkeeper
@@ -119,7 +123,7 @@ rm -rf $RPM_BUILD_ROOT
 %doc COPYING* AUTHORS NEWS README*
 #%doc ChangeLog
 %doc extensions/gestures/ephy-gestures.xml
-%_sysconfdir/gconf/schemas/epilicious.schemas
+#%_sysconfdir/gconf/schemas/epilicious.schemas
 %_datadir/%name/
 %_datadir/epiphany/icons/hicolor/*/status/*
 %dir %_datadir/omf/%name
