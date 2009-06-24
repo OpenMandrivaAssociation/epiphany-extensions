@@ -3,7 +3,7 @@
 %define epiver 2.27
 %define api_version 2.27
 %define dir_version 2.27
-%define git 20090610
+%define git 20090624
 %if %git
 %define release %mkrel 0.%git.1
 %else
@@ -44,23 +44,11 @@ This package contains the following extensions for the GNOME Web Browser:
 Actions
 Ad blocker
 Auto-scroller
-Auto-reload
 Certificates
-Creative Commons License viewer
-Error-viewer
-Epilicious
-Favicon
+Extension Manager
 Gestures
 Greasemonkey
-Java Console
-Live HTTP Headers
-Net-monitor
-Page-info
-Permissions
 Push scroller
-Python Console
-RSS
-Select stylesheet
 Sidebar
 Tab groups
 Tab states
