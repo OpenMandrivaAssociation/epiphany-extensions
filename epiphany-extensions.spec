@@ -3,7 +3,7 @@
 %define epiver 2.27
 %define api_version 2.27
 %define dir_version 2.27
-%define git 20090624
+%define git 20090703
 %if %git
 %define release %mkrel 0.%git.1
 %else
@@ -50,6 +50,7 @@ Gestures
 Greasemonkey
 Push scroller
 Sidebar
+SoupFly
 Tab groups
 Tab states
 
@@ -113,5 +114,17 @@ rm -rf $RPM_BUILD_ROOT
 %_datadir/epiphany/icons/hicolor/*/status/*
 %dir %_datadir/omf/%name
 %_datadir/omf/%name/%name-C.omf
-%dir %{_libdir}/epiphany
-%_libdir/epiphany/%{dir_version}
+%_libdir/epiphany/%{dir_version}/extensions/*.so
+%_libdir/epiphany/%{dir_version}/extensions/actions.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/adblock.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/auto-scroller.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/certificates.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/extensions-manager-ui.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/gestures.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/greasemonkey.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/push-scroller.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/sidebar.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/soup-fly.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/tab-groups.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/tab-states.ephy-extension
+
