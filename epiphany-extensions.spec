@@ -1,9 +1,9 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.27
+%define epiver 2.27.4
 %define api_version 2.27
 %define dir_version 2.27
-%define git 20090703
+%define git 0
 %if %git
 %define release %mkrel 0.%git.1
 %else
@@ -12,7 +12,7 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.27.0
+Version: 2.27.4
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.bz2
