@@ -5,14 +5,14 @@
 %define dir_version 2.27
 %define git 0
 %if %git
-%define release %mkrel 0.%git.1
+%define release %mkrel 1
 %else
 %define release %mkrel 1
 %endif
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.27.4
+Version: 2.27.5
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.bz2
