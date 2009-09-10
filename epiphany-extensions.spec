@@ -12,7 +12,7 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.27.91
+Version: 2.27.92
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.bz2
