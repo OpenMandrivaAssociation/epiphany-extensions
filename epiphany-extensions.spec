@@ -12,14 +12,13 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.28.0
+Version: 2.28.1
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.bz2
 %else
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 %endif
-Patch: epiphany-extensions-20090416-valid-xml.patch
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
@@ -61,7 +60,6 @@ Tab states
 %else
 %setup -q
 %endif
-#%patch -p1
 
 cp extensions/error-viewer/README README.error-viewer
 
@@ -88,14 +86,6 @@ cat %name.lang >> %name-%api_version.lang
 #remove unpackaged files
 rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
-
-#%post
-#%update_scrollkeeper
-#define schemas epilicious
-#post_install_gconf_schemas %schemas
-
-#%preun
-#preun_uninstall_gconf_schemas %schemas
 
 %postun
 %clean_scrollkeeper
