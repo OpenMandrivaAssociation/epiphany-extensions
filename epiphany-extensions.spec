@@ -1,21 +1,21 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.28.0
-%define api_version 2.28
-%define dir_version 2.28
-%define git 0
+%define epiver 2.29.0
+%define api_version 2.29
+%define dir_version 2.29
+%define git 20091221
 %if %git
-%define release %mkrel 1
+%define release %mkrel -c %git 1
 %else
 %define release %mkrel 1
 %endif
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.28.1
+Version: 2.29.0
 Release: %release
 %if %git
-Source0:       %{name}-%{git}.tar.bz2
+Source0:       %{name}-%{git}.tar.xz
 %else
 Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 %endif
@@ -26,7 +26,7 @@ Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: epiphany-devel >= %epiver
-#BuildRequires: OpenSP-devel
+BuildRequires: OpenSP-devel
 BuildRequires: dbus-devel >= 0.50
 BuildRequires: automake1.9
 BuildRequires: gnome-common
@@ -45,10 +45,9 @@ Ad blocker
 Auto-scroller
 Certificates
 Extension Manager
-Gestures
 Greasemonkey
 Push scroller
-Sidebar
+RSS
 SoupFly
 Tab groups
 Tab states
@@ -110,10 +109,10 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/epiphany/%{dir_version}/extensions/auto-scroller.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/certificates.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/extensions-manager-ui.ephy-extension
-%_libdir/epiphany/%{dir_version}/extensions/gestures.ephy-extension
+#%_libdir/epiphany/%{dir_version}/extensions/gestures.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/greasemonkey.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/push-scroller.ephy-extension
-%_libdir/epiphany/%{dir_version}/extensions/sidebar.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/rss.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/soup-fly.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/tab-groups.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/tab-states.ephy-extension
