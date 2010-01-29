@@ -3,7 +3,7 @@
 %define epiver 2.29.0
 %define api_version 2.29
 %define dir_version 2.29
-%define git 20091221
+%define git 0
 %if %git
 %define release %mkrel -c %git 1
 %else
@@ -12,7 +12,7 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.29.0
+Version: 2.29.6
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.xz
@@ -42,10 +42,13 @@ Requires(postun): scrollkeeper
 This package contains the following extensions for the GNOME Web Browser:
 Actions
 Ad blocker
+Auto-Reload
 Auto-scroller
 Certificates
 Extension Manager
+Gestures
 Greasemonkey
+HTML5 Tube
 Push scroller
 RSS
 SoupFly
@@ -106,11 +109,13 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/epiphany/%{dir_version}/extensions/*.so
 %_libdir/epiphany/%{dir_version}/extensions/actions.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/adblock.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/auto-reload.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/auto-scroller.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/certificates.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/extensions-manager-ui.ephy-extension
-#%_libdir/epiphany/%{dir_version}/extensions/gestures.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/gestures.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/greasemonkey.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/html5tube.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/push-scroller.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/rss.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/soup-fly.ephy-extension
