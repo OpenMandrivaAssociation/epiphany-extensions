@@ -12,7 +12,7 @@
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.29.6
+Version: 2.29.91
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.xz
@@ -53,6 +53,7 @@ Push scroller
 RSS
 SoupFly
 Tab groups
+Tab Key Tab Navigate
 Tab states
 
 %prep
@@ -120,5 +121,6 @@ rm -rf $RPM_BUILD_ROOT
 %_libdir/epiphany/%{dir_version}/extensions/rss.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/soup-fly.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/tab-groups.ephy-extension
+%_libdir/epiphany/%{dir_version}/extensions/tab-key-tab-navigate.ephy-extension
 %_libdir/epiphany/%{dir_version}/extensions/tab-states.ephy-extension
 
