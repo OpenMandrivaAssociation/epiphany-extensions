@@ -1,18 +1,18 @@
 %define _requires_exceptions libnspr4\\|libplc4\\|libplds4\\|libnss\\|libsmime3\\|libsoftokn\\|libssl3\\|libgtkembedmoz\\|libxpcom
 
-%define epiver 2.29.0
+%define epiver 2.30.0
 %define api_version 2.29
-%define dir_version 2.29
+%define dir_version 2.30
 %define git 0
 %if %git
-%define release %mkrel -c %git 1
+%define release 1
 %else
 %define release %mkrel 1
 %endif
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 2.29.91
+Version: 2.30.0
 Release: %release
 %if %git
 Source0:       %{name}-%{git}.tar.xz
@@ -75,7 +75,7 @@ cp extensions/error-viewer/README README.error-viewer
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT *.lang
 %makeinstall_std
 %find_lang %name-%api_version
 %find_lang %name --with-gnome
