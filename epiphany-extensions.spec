@@ -2,12 +2,12 @@
 
 %define epiver 2.30.0
 %define api_version 2.29
-%define dir_version 2.30
+%define dir_version 2.29
 %define git 0
 %if %git
 %define release 1
 %else
-%define release %mkrel 1
+%define release %mkrel 2
 %endif
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
