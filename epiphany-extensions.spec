@@ -5,7 +5,7 @@
 %define dir_version 2.29
 %define git 0
 %if %git
-%define release 1
+%define release 2
 %else
 %define release %mkrel 2
 %endif
