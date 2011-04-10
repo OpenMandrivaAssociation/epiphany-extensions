@@ -16,6 +16,7 @@ Group: Networking/WWW
 Url: http://www.gnome.org/projects/epiphany/
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildRequires: epiphany-devel >= %epiver
+BuildRequires: libGConf2-devel GConf2
 BuildRequires: OpenSP-devel
 BuildRequires: dbus-devel >= 0.50
 BuildRequires: automake
