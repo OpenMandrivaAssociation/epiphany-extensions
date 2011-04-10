@@ -70,7 +70,7 @@ rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %name-%api_version.lang
+%files -f %name.lang
 %defattr(-,root,root)
 %doc COPYING* AUTHORS NEWS README*
 #%doc ChangeLog
