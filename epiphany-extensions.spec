@@ -54,7 +54,7 @@ cp extensions/error-viewer/README README.error-viewer
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT *.lang
+rm -rf %{buildroot} *.lang
 %makeinstall_std
 
 %find_lang %name --with-gnome --all-name
@@ -64,11 +64,11 @@ echo "%lang($(basename $omf|sed -e s/.*-// -e s/.omf//)) $(echo $omf|sed -e s!%b
 done
 
 #remove unpackaged files
-rm -rf $RPM_BUILD_ROOT%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
+rm -rf %{buildroot}%{_libdir}/epiphany/%{dir_version}/extensions/*.la \
       %buildroot/var/lib/scrollkeeper
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files -f %name.lang
 %defattr(-,root,root)
