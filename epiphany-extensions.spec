@@ -18,6 +18,7 @@ BuildRequires: opensp-devel
 BuildRequires: epiphany-devel >= %{version}
 BuildRequires: pkgconfig(dbus-glib-1)
 BuildRequires: pkgconfig(gconf-2.0)
+BuildRequires: rarian
 
 Requires: epiphany >= %{version}
 
