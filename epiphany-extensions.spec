@@ -13,7 +13,7 @@ Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.x
 
 BuildRequires: intltool
 BuildRequires: gnome-common
-BuildRequires: gnome-doc-utils
+BuildRequires: pkgconfig(gnome-doc-utils)
 BuildRequires: opensp-devel
 BuildRequires: epiphany-devel >= %{version}
 BuildRequires: pkgconfig(dbus-glib-1)
