@@ -1,2 +1,4 @@
+removed_sources:
+  epiphany-extensions-3.2.0.tar.xz: 0e9eb9f176e3c7c45d57f7885661af986f458eee
 sources:
-  "epiphany-extensions-3.2.0.tar.xz": 0e9eb9f176e3c7c45d57f7885661af986f458eee
+  epiphany-extensions-3.4.0.tar.xz: 7c2546a6edd36a037d4dba628cd74a330eb0af5c

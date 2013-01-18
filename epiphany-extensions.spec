@@ -1,8 +1,8 @@
-%define api 3.2
+%define api 3.4
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
-Version: 3.2.0
+Version: 3.4.0
 Release: 1
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
