@@ -63,7 +63,6 @@ find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 %{_libdir}/epiphany/%{api}/extensions/actions.ephy-extension
 %{_libdir}/epiphany/%{api}/extensions/adblock.ephy-extension
 %{_libdir}/epiphany/%{api}/extensions/auto-reload.ephy-extension
-%{_libdir}/epiphany/%{api}/extensions/certificates.ephy-extension
 %{_libdir}/epiphany/%{api}/extensions/extensions-manager-ui.ephy-extension
 %{_libdir}/epiphany/%{api}/extensions/gestures.ephy-extension
 %{_libdir}/epiphany/%{api}/extensions/greasemonkey.ephy-extension
