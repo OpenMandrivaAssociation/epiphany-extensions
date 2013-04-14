@@ -1,4 +1,5 @@
 %define api 3.4
+%define _disable_ld_no_undefined 1
 
 Summary: Extensions for the GNOME Web Browser, Epiphany
 Name: epiphany-extensions
