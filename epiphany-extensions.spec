@@ -1,27 +1,27 @@
-%define api 3.4
 %define _disable_ld_no_undefined 1
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+%define api 3.4
 
-Summary: Extensions for the GNOME Web Browser, Epiphany
-Name: epiphany-extensions
-Version: 3.4.0
-Release: 1
+Summary:	Extensions for the GNOME Web Browser, Epiphany
+Name:		epiphany-extensions
+Version:	3.4.0
+Release:	1
 ## The Live HTTP Headers extension is LGPLv2.1+; the Gestures extension is
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
-Group: Networking/WWW
-Url: http://www.gnome.org/projects/epiphany/
-Source0: http://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.xz
+Group:		Networking/WWW
+Url:		http://www.gnome.org/projects/epiphany/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/%{url_ver}/%{name}-%{version}.tar.xz
 
-BuildRequires: intltool
-BuildRequires: gnome-common
-BuildRequires: pkgconfig(gnome-doc-utils)
-BuildRequires: opensp-devel
-BuildRequires: epiphany-devel >= %{version}
-BuildRequires: pkgconfig(dbus-glib-1)
-BuildRequires: pkgconfig(gconf-2.0)
-BuildRequires: rarian
-
-Requires: epiphany >= %{version}
+BuildRequires:	intltool
+BuildRequires:	gnome-common
+BuildRequires:	rarian
+BuildRequires:	opensp-devel
+BuildRequires:	pkgconfig(dbus-glib-1)
+BuildRequires:	pkgconfig(epiphany) >= %{version}
+BuildRequires:	pkgconfig(gconf-2.0)
+BuildRequires:	pkgconfig(gnome-doc-utils)
+Requires:	epiphany >= %{version}
 
 %description
 This package contains the following extensions for the GNOME Web Browser:
@@ -50,7 +50,6 @@ Tab states
 
 %install
 %makeinstall_std
-find %{buildroot} -type f -name "*.la" -exec rm -f {} ';'
 
 %find_lang %{name} --with-gnome --all-name
 
