@@ -21,7 +21,7 @@ BuildRequires:	pkgconfig(dbus-glib-1)
 BuildRequires:	pkgconfig(epiphany) >= %{version}
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(gnome-doc-utils)
-Requires:	epiphany >= %{version}
+Requires:	epiphany-devel >= %{version}
 
 %description
 This package contains the following extensions for the GNOME Web Browser:
