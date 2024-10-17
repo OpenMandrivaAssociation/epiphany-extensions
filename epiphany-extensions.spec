@@ -10,7 +10,7 @@ Release:	7
 ## GPLv2 (only); and all other extensions are GPLv2+.
 License:        LGPLv2+ and GPLv2 and GPLv2+ and GFDL
 Group:		Networking/WWW
-Url:		http://www.gnome.org/projects/epiphany/
+Url:		https://www.gnome.org/projects/epiphany/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/epiphany-extensions/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	intltool
